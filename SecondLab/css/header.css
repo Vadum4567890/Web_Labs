@@ -18,7 +18,7 @@
 }
 
 .header__items_title h1:hover {
-    color: #125bc0; /* Color to change to when hovering */
+    color: #125bc0; 
 }
 
 .header__items_nav {
@@ -27,9 +27,9 @@
 
 .nav {
     display: flex;
-    justify-content: flex-end; /* Розташовуємо інші елементи справа */
+    justify-content: flex-end; 
     align-items: center;
-    gap: 10px; /* Встановлюємо відступи між елементами */
+    gap: 10px; 
     margin-right: 100px;
 }
 
