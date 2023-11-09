@@ -1,0 +1,39 @@
+import React from 'react';
+import styles from '../../styles/Product.module.css';
+import { Link, NavLink } from 'react-router-dom';
+import { ROUTES } from '../../utils/routes';
+
+
+const Product = ({ product }) => {
+  return (
+    <div className={styles.product}>
+      <div className={styles.item}>
+        <p>Item1</p>
+      </div>
+      <div className={styles.product__img}>
+        <Link to={ROUTES.product} className={styles.product_image}>
+          <img alt='headphones' />
+        </Link>
+      </div>
+      <div className={styles.product__description}>
+        <div className={styles.product__description__title}>
+          <p>{product.title}</p>
+        </div>
+        <div className={styles.product__description__desc}>
+          <p>{product.description}</p>
+        </div>
+        <div className={styles.product__description__nameprice}>
+          <p>Price: </p>
+          <p>{product.price}</p>
+        </div>
+        <div className={styles.product__details_btn}>
+          <NavLink to={`${product.id}`}>
+            <p>View more</p>
+          </NavLink>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Product;
