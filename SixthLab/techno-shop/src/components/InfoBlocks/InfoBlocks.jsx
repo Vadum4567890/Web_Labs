@@ -5,8 +5,9 @@ import PC from '../../assets/pc.jpg'
 import COMPONENTS from '../../assets/components.jpg'
 import { NavLink } from 'react-router-dom'
 import { ROUTES } from '../../utils/routes'
+import Product from '../Product/Product'
 
-const InfoBlocks = () => {
+const InfoBlocks = ({products = [], showMore, handleViewMore }) => {
   return (
     <div className={styles.content}>
         <div className={styles.info__blocks}>
@@ -72,10 +73,21 @@ const InfoBlocks = () => {
             </div>
         </div>
         <div className={styles.view__button}>
-            <NavLink to={ROUTES.CATALOG}>
-                <button type='button'>View More</button>
+            <NavLink>
+                <button type='button' onClick={handleViewMore}>View More</button>
             </NavLink>
         </div>
+        {showMore && (
+        <div className={styles.moreInfo}>
+          {products && products.length > 0 ? (
+            products.map((product, index) => (
+              <Product key={index} catalog={true} product={product} />
+            ))
+          ) : (
+            <p>No products available.</p>
+          )}
+        </div>
+      )}
     </div>
   )
 }

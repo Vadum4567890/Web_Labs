@@ -4,15 +4,15 @@ import { Link, NavLink } from 'react-router-dom';
 import { ROUTES } from '../../utils/routes';
 
 
-const Product = ({ product }) => {
+const Product = ({ catalog, product }) => {
   return (
     <div className={styles.product}>
       <div className={styles.item}>
         <p>Item1</p>
       </div>
       <div className={styles.product__img}>
-        <Link to={ROUTES.product} className={styles.product_image}>
-          <img alt='headphones' />
+        <Link className={styles.product_image}>
+          <img src={product.image} alt='headphones' />
         </Link>
       </div>
       <div className={styles.product__description}>
@@ -27,9 +27,19 @@ const Product = ({ product }) => {
           <p>{product.price}</p>
         </div>
         <div className={styles.product__details_btn}>
-          <NavLink to={`${product.id}`}>
-            <p>View more</p>
-          </NavLink>
+          { catalog === true ? (
+            <NavLink to={`catalog/${product.id}`}>
+              <p>View more</p>
+            </NavLink>
+          ) : (
+            <NavLink to={`${product.id}`}>
+              <p>View more</p>
+            </NavLink>
+          )
+          }
+          
+            
+          
         </div>
       </div>
     </div>

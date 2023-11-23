@@ -1,10 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../../styles/Home.module.css'
 
 import MAINIMG from '../../assets/technoshoptitle.jpg'
 import InfoBlocks from '../InfoBlocks/InfoBlocks'
+import { getProducts } from '../../utils/api'
 
 const Home = () => {
+    const [products, updateProducts] = useState([]);
+    const [showMore, setShowMore] = useState(false);
+
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const data = await getProducts();
+          updateProducts(data);
+        } catch (error) {
+          console.error('Error fetching data:', error.message);
+        }
+      };
+  
+      fetchData();
+    }, [updateProducts]);
+  
+    const handleViewMore = () => {
+        setShowMore(true);
+      };
 
   return (
     <div className={styles.container}>
@@ -23,7 +43,7 @@ const Home = () => {
                 </div>
             </div>
         </div>
-        <InfoBlocks/>
+        <InfoBlocks products={products} showMore={showMore} handleViewMore={handleViewMore}/>
     </div>
     
   )
