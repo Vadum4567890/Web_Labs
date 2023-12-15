@@ -1,0 +1,19 @@
+.successpage {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+}
+
+.successpage a {
+    margin-top: 20px;
+    width: 340px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    padding: 10px;
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

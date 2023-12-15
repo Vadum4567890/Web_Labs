@@ -1,0 +1,55 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    margin: 0 auto;
+    max-width: 1440px;
+}
+
+.filter__block {
+    display: flex;
+    justify-content: space-between;
+    width: 1300px;
+    padding: 30px;
+}
+
+.filters {
+    display: flex;
+    gap: 20px;
+}
+select {
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.apply_btn {
+    display: flex;
+    width: 150px;
+}
+.apply_btn button {
+     width: 100%;
+     padding: 15px;
+     border-radius: 10px;
+     background-color: white;
+}   
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+}
+
+.search {
+    position:absolute;
+    top: 50px; 
+    right: 190px;
+ 
+}
+.search input {
+    height: 45px;
+    padding: 10px;  
+    border: 2px solid black;
+    border-radius: 50px;
+}
