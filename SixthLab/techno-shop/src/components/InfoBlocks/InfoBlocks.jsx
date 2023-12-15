@@ -6,6 +6,7 @@ import COMPONENTS from '../../assets/components.jpg'
 import { NavLink } from 'react-router-dom'
 import { ROUTES } from '../../utils/routes'
 import Product from '../Product/Product'
+import { Audio } from 'react-loader-spinner'
 
 const InfoBlocks = ({products = [], showMore, handleViewMore }) => {
   return (
@@ -84,7 +85,16 @@ const InfoBlocks = ({products = [], showMore, handleViewMore }) => {
               <Product key={index} catalog={true} product={product} />
             ))
           ) : (
-            <p>No products available.</p>
+              // Display loader while data is being fetched
+              <Audio 
+              height="80"
+              width="80"
+              radius="9"
+              color="green"
+              ariaLabel="loading"
+              wrapperStyle
+              wrapperClass />
+            
           )}
         </div>
       )}

@@ -3,6 +3,8 @@ import { NavLink, useParams } from 'react-router-dom';
 import styles from '../../styles/ProductPage.module.css';
 import { ROUTES } from '../../utils/routes';
 import { getProductById } from '../../utils/api';
+import { useDispatch } from 'react-redux';
+import { addItemToCart } from '../../features/cart/cartSlice';
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -21,6 +23,13 @@ const ProductPage = () => {
     fetchData();
   }, [id]);
 
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addItemToCart(product));
+  };
+
+
   return (
     <div>
       {product ? (
@@ -36,7 +45,7 @@ const ProductPage = () => {
               <p>Product Name: {product.price}</p>  
               <div className={styles.buttons}>
                 <NavLink to={ROUTES.CATALOG}>Go Back</NavLink>
-                <NavLink to={ROUTES.CATALOG}>Add to Cart</NavLink>
+                <NavLink onClick={handleAddToCart} to={ROUTES.CART}>Add to Cart</NavLink>
               </div>
             </div>
         </div>
